@@ -2,5 +2,10 @@ command:
   - gunicorn
   - app:app
   - -w
-  - 4
-display_name: "lv Marketing Lens Funnel"
+  - "4"
+
+display_name: "albertsons app"
+
+env:
+  - name: "MARGE"
+    value: "01f1438541b416e9a60d68c2e94f8627"
