@@ -1,0 +1,321 @@
+.agent-wrapper {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  z-index: 10000;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Floating Action Button with Genie-like gradient */
+.fab.genie-fab {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6490f0ad 0%, #f355a4c0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 0;
+  box-shadow:
+    0 0 0 3px #000000,
+    0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.fab.genie-fab:hover {
+  transform: scale(1.08);
+}
+/* Base popup – unchanged */
+.popup-container.genie-popup {
+  position: fixed;
+  bottom: 30px;
+  /* left: 20px; */
+  right: 20px;
+  width: 380px;        /* keep original for selection/list views */
+  max-height: 80vh;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 10001;
+  transition: width 0.2s ease, max-height 0.2s ease;
+}
+
+/* Enlarged popup ONLY when in chat view */
+.popup-container.genie-popup.genie-popup-chat {
+  width: 620px;        /* wider only in chat [web:40][web:41][web:61] */
+  max-height: 92vh;    /* taller only in chat */
+}
+
+/* Header gradient + layout */
+.popup-header.genie-header {
+  background: linear-gradient(to right, #2374C4, #0F2359);
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px 0 16px;
+  color: #ffffff;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.header-title {
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 260px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon-button {
+  background: transparent;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.icon-button:hover {
+  opacity: 0.9;
+}
+
+.back-button {
+  margin-right: 4px;
+}
+
+.back-arrow {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+/* Body */
+.popup-body.genie-body {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  min-height: 330px;
+}
+
+/* Selection view */
+.selection-view {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.agent-card {
+  flex: 1;
+  min-width: 0;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  background-color: #f9fafb;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+  text-align: center;
+}
+
+.agent-card:hover {
+  background-color: #f0f2ff;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+  transform: translateY(-1px);
+}
+
+.agent-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+  background: #e0ebff;
+}
+
+.agent-card-icon.secondary {
+  background: #fee2f2;
+}
+
+.agent-card-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* List view */
+.agent-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.agent-list .list-item {
+  margin-bottom: 8px;  /* space between items [web:10][web:12][web:14] */
+}
+
+.agent-list .list-item:last-child {
+  margin-bottom: 16px; /* extra space after all spaces */
+}
+
+
+.list-item {
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.2s ease;
+}
+
+.list-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.list-item-title {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.list-item-description {
+  font-size: 12px;
+  color: #4b5563;
+}
+
+.list-item:hover {
+  background-color: #f0f2ff;
+}
+
+/* Chat view */
+.chat-space {
+  display: flex;
+  flex-direction: column;
+  height: 260px;
+}
+
+.chat-space-large {
+  height: 420px;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.bot-msg {
+  font-size: 13px;
+  color: #111827;
+  background-color: #e0ebff;
+  display: inline-block;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+/* Question box */
+.question-box {
+  /* padding: 12px; */
+  /* border-top: 1px solid #eee; */
+  background-color: #ffffff;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+#question-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 34px 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+#question-input:focus {
+  border-color: #143d4a;
+  box-shadow: 0 0 0 1px rgba(20, 61, 74, 0.2);
+}
+
+.send-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: grey;
+  cursor: default;
+  user-select: none;
+}
+
+.send-icon.active {
+  cursor: pointer;
+  color: #143d4a;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .agent-wrapper {
+    bottom: 20px;
+    right: 15px;
+  }
+
+  .popup-container.genie-popup,
+  .popup-container.genie-popup.genie-popup-chat {
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .fab.genie-fab {
+    width: 25px;
+    height: 25px;
+  }
+
+  .selection-view {
+    flex-direction: column;
+  }
+}
+
+
+.chat-info-banner {
+  font-size: 12px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  background-color: #e0f2fe;   /* light info blue */
+  color: #0c4a6e;              /* darker text */
+  border: 1px solid #bae6fd;
+}

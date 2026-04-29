@@ -1,0 +1,43 @@
+.markdown-container {
+    width: 100%;
+    display: block;
+}
+
+.table-scroll-wrapper {
+    width: 100%;
+    overflow-x: auto;     
+    margin: 16px 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+.table-scroll-wrapper table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 600px;      
+    font-size: 12px;
+    margin: 0;          
+}
+
+.table-scroll-wrapper th, 
+.table-scroll-wrapper td {
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    white-space: nowrap;
+}
+
+.markdown-container p {
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.table-scroll-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+.table-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
