@@ -72,7 +72,7 @@ const SPACES = [
     name: "MARGE",
     display_name: "Warehouse Analyst Genie",
     description:
-      "Deep dive into AQL/INQ Funnels, Conversion Ratios, Multi-touch Outcomes, and Granular Performance Data",
+      "This space enables analysis of warehouse asset performance, downtime reasons, and causal factors to optimize operations and reduce inefficiencies.",
   },
   // {
   //   id: "3",
